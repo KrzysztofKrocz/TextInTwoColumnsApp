@@ -24,8 +24,8 @@ public class RunApp
     	Scanner scanner = new Scanner(System.in);
 
     	String text = scanner.nextLine();
-    	ITextInTwoColumnsPrinter txt = new TextInTwoColumnsPrinter(text,10);
-    	txt.printTextInTwoColumns();
+    	ITextInTwoColumnsPrinter txtPrinter = new TextInTwoColumnsPrinter(text,10);
+    	txtPrinter.printTextInTwoColumns();
      }
       
     

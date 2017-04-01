@@ -29,14 +29,13 @@ public class TextInTwoColumnsPrinter implements ITextInTwoColumnsPrinter {
 		this.rowWidth = rowWidth;
 	}
 
-	@Override
 	public void printTextInTwoColumns() {
 		if (rowWidth <= 1) {
 			System.out.println("Podano błędną długość wiersza");
 			return;
 		}
 		char textCharTab[] = textToDisplay.toCharArray();
-		List<Character> textCharsList = getcompleteTextCharsList(textCharTab);
+		List<Character> textCharsList = getcompleteTextCharsList(textCharTab,rowWidth);
 
 		List<Character> firstColumnChars = new ArrayList<Character>();
 		List<Character> secondColumnChars = new ArrayList<Character>();
@@ -67,7 +66,7 @@ public class TextInTwoColumnsPrinter implements ITextInTwoColumnsPrinter {
 	 *            Tablica znaków tekstu
 	 * @return Lista znaków uzupełniona o '-' i ' '
 	 */
-	private List<Character> getcompleteTextCharsList(char textCharTab[]) {
+	public List<Character> getcompleteTextCharsList(char textCharTab[],int rowWidth) {
 		List<Character> textCharsList = new ArrayList<Character>();
 		int charNumber = 0;
 		for (int i = 0; i < textCharTab.length; i++) {
@@ -100,7 +99,7 @@ public class TextInTwoColumnsPrinter implements ITextInTwoColumnsPrinter {
 	 * @param columnLength
 	 *            Długość kolumny
 	 */
-	private void printTwoCharListsInTwoColumn(List<Character> firstColumnChars, List<Character> secondColumnChars,
+	public void printTwoCharListsInTwoColumn(List<Character> firstColumnChars, List<Character> secondColumnChars,
 			int rowSize, int columnLength) {
 		String lineToPrint = "";
 		int counter = 0;
@@ -139,11 +138,28 @@ public class TextInTwoColumnsPrinter implements ITextInTwoColumnsPrinter {
 	 *            Końcowy indeks
 	 * @return Łańcuch znaków
 	 */
-	private String getCharsFromList(List<Character> charList, int start, int end) {
+	public String getCharsFromList(List<Character> charList, int start, int end) {
 		String chars = "";
 		for (int i = start; i < end; i++) {
 			chars += charList.get(i);
 		}
 		return chars;
 	}
+
+	public String getTextToDisplay() {
+		return textToDisplay;
+	}
+
+	public void setTextToDisplay(String textToDisplay) {
+		this.textToDisplay = textToDisplay;
+	}
+
+	public int getRowWidth() {
+		return rowWidth;
+	}
+
+	public void setRowWidth(int rowWidth) {
+		this.rowWidth = rowWidth;
+	}
+	
 }
