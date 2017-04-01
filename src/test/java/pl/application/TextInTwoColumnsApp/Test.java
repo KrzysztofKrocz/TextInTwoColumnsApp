@@ -47,6 +47,7 @@ public class Test extends TestCase {
 		assertThat(txtPrinter.getcompleteTextCharsList(tab, 5),is(charList));
 	}
 	
+	@org.junit.Test
 	public void testMethodprintTextInTwoColumns(){
 		ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	     System.setOut(new PrintStream(outContent));
